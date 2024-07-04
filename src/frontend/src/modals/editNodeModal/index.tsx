@@ -19,6 +19,7 @@ import useHandleChangeAdvanced from "./hooks/use-handle-change-advanced";
 import useHandleOnNewValue from "./hooks/use-handle-new-value";
 import useHandleNodeClass from "./hooks/use-handle-node-class";
 import useRowData from "./hooks/use-row-data";
+import { useTranslation } from "react-i18next";
 
 const EditNodeModal = forwardRef(
   (
@@ -35,6 +36,7 @@ const EditNodeModal = forwardRef(
     },
     ref,
   ) => {
+    const { t } = useTranslation();
     const isDark = useDarkStore((state) => state.dark);
     const setNode = useFlowStore((state) => state.setNode);
     const takeSnapshot = useFlowsManagerStore((state) => state.takeSnapshot);
