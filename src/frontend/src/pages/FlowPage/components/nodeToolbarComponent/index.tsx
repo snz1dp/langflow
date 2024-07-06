@@ -89,7 +89,7 @@ export default function NodeToolbarComponent({
     }
     setNoticeData({
       title:
-        "Minimization are only available for nodes with one handle or fewer.",
+        "Minimization are only available for components with one handle or fewer.",
     });
     return;
   }
@@ -765,7 +765,7 @@ export default function NodeToolbarComponent({
             onClose={setShowOverrideModal}
             onCancel={() => {
               saveComponent(cloneDeep(data), false);
-              setSuccessData({ title: t("New node successfully saved!") });
+              setSuccessData({ title: t("New component successfully saved!") });
             }}
           >
             <ConfirmationModal.Content>
