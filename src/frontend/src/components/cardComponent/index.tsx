@@ -340,7 +340,7 @@ export default function CollectionCardComponent({
                   {onDelete && data?.metadata !== undefined ? (
                     <ShadTooltip
                       content={
-                        authorized ? "Delete" : "Please review your API key."
+                        authorized ? t("Delete") : t("Please review your API key.")
                       }
                     >
                       <DeleteConfirmationModal onConfirm={onDelete}>
@@ -366,7 +366,7 @@ export default function CollectionCardComponent({
                   ) : (
                     <ShadTooltip
                       content={
-                        authorized ? "Like" : "Please review your API key."
+                        authorized ? t("Like") : t("Please review your API key.")
                       }
                     >
                       <Button
