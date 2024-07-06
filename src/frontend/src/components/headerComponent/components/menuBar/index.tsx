@@ -60,7 +60,7 @@ export const MenuBar = ({}: {}): JSX.Element => {
 
   function handleReloadComponents() {
     getTypes(true).then(() => {
-      setSuccessData({ title: "Components reloaded successfully" });
+      setSuccessData({ title: t("Components reloaded successfully") });
     });
   }
 

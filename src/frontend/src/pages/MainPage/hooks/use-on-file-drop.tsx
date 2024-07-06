@@ -36,15 +36,15 @@ const useFileDrop = (uploadFlow, type) => {
           })
             .then(() => {
               setSuccessData({
-                title: `${
-                  is_component ? "Component" : "Flow"
-                } uploaded successfully`,
+                title: t("{{name}} uploaded successfully", {
+                  name: is_component ? t("Component") : t("Flow"),
+                })
               });
               getFolderById(folderId ? folderId : myCollectionId);
             })
             .catch((error) => {
               setErrorData({
-                title: CONSOLE_ERROR_MSG,
+                title: t(CONSOLE_ERROR_MSG),
                 list: [error],
               });
             });

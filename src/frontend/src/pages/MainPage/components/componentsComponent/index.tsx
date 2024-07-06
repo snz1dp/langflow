@@ -28,12 +28,14 @@ import useExportFlows from "./hooks/use-handle-export";
 import useSelectAll from "./hooks/use-handle-select-all";
 import useSelectOptionsChange from "./hooks/use-select-options-change";
 import useSelectedFlows from "./hooks/use-selected-flows";
+import { useTranslation } from "react-i18next";
 
 export default function ComponentsComponent({
   type = "all",
 }: {
   type?: string;
 }) {
+  const { t } = useTranslation();
   const uploadFlow = useFlowsManagerStore((state) => state.uploadFlow);
   const removeFlow = useFlowsManagerStore((state) => state.removeFlow);
   const isLoading = useFlowsManagerStore((state) => state.isLoading);
@@ -192,7 +194,7 @@ export default function ComponentsComponent({
 
       <CardsWrapComponent
         onFileDrop={handleFileDrop}
-        dragMessage={`Drag your ${name} here`}
+        dragMessage={t("Drag your {{name}} here", { name })}
       >
         <div className="flex h-full w-full flex-col justify-between">
           <div className="flex w-full flex-col gap-4">

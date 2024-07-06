@@ -74,10 +74,10 @@ export default function AddNewVariableButton({
       .catch((error) => {
         let responseError = error as ResponseErrorDetailAPI;
         setErrorData({
-          title: "Error creating variable",
+          title: t("Error creating variable"),
           list: [
             responseError?.response?.data?.detail ??
-              "An unexpected error occurred while adding a new variable. Please try again.",
+              t("An unexpected error occurred while adding a new variable. Please try again."),
           ],
         });
       });

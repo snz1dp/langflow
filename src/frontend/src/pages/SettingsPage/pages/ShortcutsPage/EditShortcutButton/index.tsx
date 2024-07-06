@@ -81,14 +81,14 @@ export default function EditShortcutButton({
         setKey(null);
         setOpen(false);
         setSuccessData({
-          title: `${shortcut[0]} shortcut successfully changed`,
+          title: t("{{shortcut}} shortcut successfully changed", {shortcut: shortcut[0]})
         });
         return;
       }
     }
     setErrorData({
-      title: "Error saving key combination",
-      list: ["This combination already exists!"],
+      title: t("Error saving key combination"),
+      list: [t("This combination already exists!")],
     });
   }
 

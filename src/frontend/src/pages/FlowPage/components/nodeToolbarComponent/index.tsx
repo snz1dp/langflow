@@ -694,7 +694,7 @@ export default function NodeToolbarComponent({
                     shortcut={
                       shortcuts.find((obj) => obj.name === "Group")?.shortcut!
                     }
-                    value={"Ungroup"}
+                    value={t("Ungroup")}
                     icon={"Ungroup"}
                     dataTestId="group-button-modal"
                   />

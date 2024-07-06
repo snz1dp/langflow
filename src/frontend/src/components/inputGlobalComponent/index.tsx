@@ -50,14 +50,14 @@ export default function InputGlobalComponent({
         })
         .catch(() => {
           setErrorData({
-            title: "Error deleting variable",
-            list: [cn("ID not found for variable: ", key)],
+            title: t("Error deleting variable"),
+            list: [cn(t("ID not found for variable: "), key)],
           });
         });
     } else {
       setErrorData({
-        title: "Error deleting variable",
-        list: [cn("ID not found for variable: ", key)],
+        title: t("Error deleting variable"),
+        list: [cn(t("ID not found for variable: "), key)],
       });
     }
   }

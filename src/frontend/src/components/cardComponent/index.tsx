@@ -57,6 +57,8 @@ export default function CollectionCardComponent({
   control?: Control<any, any>;
   is_component?: boolean;
 }) {
+  const { t } = useTranslation();
+
   const addFlow = useFlowsManagerStore((state) => state.addFlow);
   const setSuccessData = useAlertStore((state) => state.setSuccessData);
   const setErrorData = useAlertStore((state) => state.setErrorData);
@@ -87,7 +89,7 @@ export default function CollectionCardComponent({
     (state) => state.selectedFlowsComponentsCards,
   );
 
-  const name = data.is_component ? "Component" : "Flow";
+  const name = data.is_component ? t("Component") : t("Flow");
 
   async function getFlowData() {
     const res = await getComponent(data.id);
@@ -142,8 +144,6 @@ export default function CollectionCardComponent({
     selectedFlowsComponentsCards?.includes(data?.id) ?? false;
 
   const { onDragStart } = useDragStart(data);
-
-  const { t } = useTranslation();
 
   return (
     <>
@@ -298,8 +298,8 @@ export default function CollectionCardComponent({
                     if (flow) {
                       if (!hasPlayground(flow)) {
                         setErrorData({
-                          title: "Error",
-                          list: ["This flow doesn't have a playground."],
+                          title: t("Error"),
+                          list: [t("This flow doesn't have a playground.")],
                         });
                         setLoadingPlayground(false);
                         return;
@@ -311,8 +311,8 @@ export default function CollectionCardComponent({
                       getFlowData().then((res) => {
                         if (!hasPlayground(res)) {
                           setErrorData({
-                            title: "Error",
-                            list: ["This flow doesn't have a playground."],
+                            title: t("Error"),
+                            list: [t("This flow doesn't have a playground.")],
                           });
                           setLoadingPlayground(false);
                           return;
@@ -402,9 +402,9 @@ export default function CollectionCardComponent({
                     content={
                       authorized
                         ? isStore
-                          ? "Download"
-                          : "Install Locally"
-                        : "Please review your API key."
+                          ? t("Download")
+                          : t("Install Locally")
+                        : t("Please review your API key.")
                     }
                   >
                     <Button
@@ -454,8 +454,8 @@ export default function CollectionCardComponent({
                     if (flow) {
                       if (!hasPlayground(flow)) {
                         setErrorData({
-                          title: "Error",
-                          list: ["This flow doesn't have a playground."],
+                          title: t("Error"),
+                          list: [t("This flow doesn't have a playground.")],
                         });
                         setLoadingPlayground(false);
                         return;
@@ -467,8 +467,8 @@ export default function CollectionCardComponent({
                       getFlowData().then((res) => {
                         if (!hasPlayground(res)) {
                           setErrorData({
-                            title: "Error",
-                            list: ["This flow doesn't have a playground."],
+                            title: t("Error"),
+                            list: [t("This flow doesn't have a playground.")],
                           });
                           setLoadingPlayground(false);
                           return;
@@ -511,7 +511,7 @@ export default function CollectionCardComponent({
           onConfirm={() => {
             if (onDelete) onDelete();
           }}
-          description={` ${is_component ? "component" : "flow"}`}
+          description={` ${is_component ? "Component" : "Flow"}`}
         >
           <></>
         </DeleteConfirmationModal>

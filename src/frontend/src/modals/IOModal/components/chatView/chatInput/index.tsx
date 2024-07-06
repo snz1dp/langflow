@@ -21,6 +21,8 @@ import UploadFileButton from "./components/uploadFileButton";
 import { getClassNamesFilePreview } from "./helpers/get-class-file-preview";
 import useAutoResizeTextArea from "./hooks/use-auto-resize-text-area";
 import useFocusOnUnlock from "./hooks/use-focus-unlock";
+import { useTranslation } from "react-i18next";
+
 export default function ChattInput({
   lockChat,
   chatValue,
@@ -32,6 +34,7 @@ export default function ChattInput({
   setFiles,
   isDragging,
 }: ChatInputType): JSX.Element {
+  const { t } = useTranslation();
   const [repeat, setRepeat] = useState(1);
   const saveLoading = useFlowsManagerStore((state) => state.saveLoading);
   const currentFlowId = useFlowsManagerStore((state) => state.currentFlowId);
@@ -73,8 +76,8 @@ export default function ChattInput({
         !ALLOWED_IMAGE_INPUT_EXTENSIONS.includes(fileExtension)
       ) {
         setErrorData({
-          title: "Error uploading file",
-          list: [FS_ERROR_TEXT, SN_ERROR_TEXT],
+          title: t("Error uploading file"),
+          list: [t(FS_ERROR_TEXT), t(SN_ERROR_TEXT)],
         });
         return;
       }
@@ -161,8 +164,8 @@ export default function ChattInput({
           saveLoading={saveLoading}
           chatValue={chatValue}
           setChatValue={setChatValue}
-          CHAT_INPUT_PLACEHOLDER={CHAT_INPUT_PLACEHOLDER}
-          CHAT_INPUT_PLACEHOLDER_SEND={CHAT_INPUT_PLACEHOLDER_SEND}
+          CHAT_INPUT_PLACEHOLDER={t(CHAT_INPUT_PLACEHOLDER)}
+          CHAT_INPUT_PLACEHOLDER_SEND={t(CHAT_INPUT_PLACEHOLDER_SEND)}
           inputRef={inputRef}
           setInputFocus={setInputFocus}
           files={files}

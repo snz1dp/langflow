@@ -3,11 +3,13 @@ import { FolderType } from "../../../pages/MainPage/entities";
 import { addFolder, updateFolder } from "../../../pages/MainPage/services";
 import useAlertStore from "../../../stores/alertStore";
 import { useFolderStore } from "../../../stores/foldersStore";
+import { getI18n } from "react-i18next";
 
 const useFolderSubmit = (
   setOpen: (a: boolean) => void,
   folderToEdit: FolderType | null,
 ) => {
+  const { t } = getI18n();
   const setSuccessData = useAlertStore((state) => state.setSuccessData);
   const setErrorData = useAlertStore((state) => state.setErrorData);
   const getFoldersApi = useFolderStore((state) => state.getFoldersApi);
@@ -18,7 +20,7 @@ const useFolderSubmit = (
       updateFolder(data, folderToEdit?.id!).then(
         () => {
           setSuccessData({
-            title: "Folder updated successfully.",
+            title: t("Folder updated successfully."),
           });
           getFoldersApi(true);
           setOpen(false);
@@ -30,7 +32,7 @@ const useFolderSubmit = (
         (reason) => {
           if (reason) {
             setErrorData({
-              title: `Error updating folder.`,
+              title: t(`Error updating folder.`),
             });
             console.error(reason);
           } else {
@@ -43,7 +45,7 @@ const useFolderSubmit = (
       addFolder(data).then(
         (res) => {
           setSuccessData({
-            title: "Folder created successfully.",
+            title: t("Folder created successfully."),
           });
           getFoldersApi(true);
           setOpen(false);
@@ -51,7 +53,7 @@ const useFolderSubmit = (
         },
         () => {
           setErrorData({
-            title: `Error creating folder.`,
+            title: t(`Error creating folder.`),
           });
         },
       );

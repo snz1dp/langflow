@@ -69,6 +69,7 @@ export async function updateVerticesOrder(
   runId: string;
   verticesToRun: string[];
 }> {
+  const { t } = getI18n();
   return new Promise(async (resolve, reject) => {
     const setErrorData = useAlertStore.getState().setErrorData;
     let orderResponse;
@@ -82,12 +83,12 @@ export async function updateVerticesOrder(
       );
     } catch (error: any) {
       setErrorData({
-        title: "Oops! Looks like you missed something",
-        list: [error.response?.data?.detail ?? "Unknown Error"],
+        title: t("Oops! Looks like you missed something"),
+        list: [error.response?.data?.detail ?? t("Unknown Error")],
       });
       useFlowStore.getState().setIsBuilding(false);
       setLockChat && setLockChat(false);
-      throw new Error("Invalid components");
+      throw new Error(t("Invalid components"));
     }
     // orderResponse.data.ids,
     // for each id we need to build the VertexLayerElementType object as

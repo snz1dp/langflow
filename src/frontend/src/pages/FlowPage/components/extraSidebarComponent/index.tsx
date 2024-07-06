@@ -87,7 +87,7 @@ export default function ExtraSidebar(): JSX.Element {
       }
     });
     if (errors.length > 0)
-      setErrorData({ title: " Components with errors: ", list: errors });
+      setErrorData({ title: t(" Components with errors: "), list: errors });
   }, []);
 
   function handleBlur() {
@@ -307,7 +307,7 @@ export default function ExtraSidebar(): JSX.Element {
                 isChild={false}
                 key={index + search + JSON.stringify(getFilterEdge)}
                 button={{
-                  title: nodeNames[SBSectionName] ?? nodeNames.unknown,
+                  title: t(nodeNames[SBSectionName] ?? nodeNames.unknown),
                   Icon:
                     nodeIconsLucide[SBSectionName] ?? nodeIconsLucide.unknown,
                 }}
@@ -323,7 +323,7 @@ export default function ExtraSidebar(): JSX.Element {
                     .map((SBItemName: string, index) => (
                       <ShadTooltip
                         content={
-                          dataFilter[SBSectionName][SBItemName].display_name
+                          t(dataFilter[SBSectionName][SBItemName].display_name)
                         }
                         side="right"
                         key={index}
@@ -344,7 +344,7 @@ export default function ExtraSidebar(): JSX.Element {
                           //convert error to boolean
                           error={!!dataFilter[SBSectionName][SBItemName].error}
                           display_name={
-                            dataFilter[SBSectionName][SBItemName].display_name
+                            t(dataFilter[SBSectionName][SBItemName].display_name)
                           }
                           official={
                             dataFilter[SBSectionName][SBItemName].official ===

@@ -180,8 +180,8 @@ export default function ChatView({
       ) {
         console.log("Error uploading file");
         setErrorData({
-          title: "Error uploading file",
-          list: [FS_ERROR_TEXT, SN_ERROR_TEXT],
+          title: t("Error uploading file"),
+          list: [t(FS_ERROR_TEXT), t(SN_ERROR_TEXT)],
         });
         return;
       }

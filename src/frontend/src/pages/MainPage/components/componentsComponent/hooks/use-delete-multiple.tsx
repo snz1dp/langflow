@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { getI18n } from "react-i18next";
 
 const useDeleteMultipleFlows = (
   selectedFlowsComponentsCards: string[],
@@ -11,6 +12,7 @@ const useDeleteMultipleFlows = (
   setSuccessData: (data: { title: string }) => void,
   setErrorData: (data: { title: string; list: string[] }) => void,
 ) => {
+  const { t } = getI18n();
   const handleDeleteMultiple = useCallback(() => {
     removeFlow(selectedFlowsComponentsCards)
       .then(() => {
@@ -20,13 +22,13 @@ const useDeleteMultipleFlows = (
           getFolderById(folderId ? folderId : myCollectionId);
         }
         setSuccessData({
-          title: "Selected items deleted successfully",
+          title: t("Selected items deleted successfully"),
         });
       })
       .catch(() => {
         setErrorData({
-          title: "Error deleting items",
-          list: ["Please try again"],
+          title: t("Error deleting items"),
+          list: [t("Please try again")],
         });
       });
   }, [

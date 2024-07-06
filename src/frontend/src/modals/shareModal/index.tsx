@@ -122,7 +122,7 @@ export default function ShareModal({
       }
       setSuccessData({
         title: t("{{name}} shared successfully!", {
-          name: is_component ? "Component" : "Flow"
+          name: is_component ? t("Component") : t("Flow")
         }),
       });
     }
@@ -133,7 +133,7 @@ export default function ShareModal({
         (err) => {
           setErrorData({
             title: t("Error sharing {{name}}", {
-              name: is_component ? "component" : "flow"
+              name: is_component ? t("component") : ("flow")
             }),
             list: [err["response"]["data"]["detail"]],
           });
@@ -148,7 +148,7 @@ export default function ShareModal({
       ).then(successShare, (err) => {
         setErrorData({
           title: t("Error sharing {{name}}", {
-            name: is_component ? "component" : "flow"
+            name: is_component ? t("component") : t("flow")
           }),
           list: [err["response"]["data"]["detail"]],
         });

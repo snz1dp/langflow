@@ -19,6 +19,7 @@ import PasswordFormComponent from "./components/PasswordForm";
 import ProfilePictureFormComponent from "./components/ProfilePictureForm";
 import useGetProfilePictures from "./components/ProfilePictureForm/components/profilePictureChooserComponent/hooks/use-get-profile-pictures";
 import StoreApiKeyFormComponent from "./components/StoreApiKeyForm";
+import { getI18n } from "react-i18next";
 
 export const GeneralPage = () => {
   const setCurrentFlowId = useFlowsManagerStore(
@@ -67,9 +68,11 @@ export const GeneralPage = () => {
 
   useScrollToElement(scrollId, setCurrentFlowId);
 
+  const { t } = getI18n();
+
   const { mutate } = usePostAddApiKey({
     onSuccess: () => {
-      setSuccessData({ title: "API key saved successfully" });
+      setSuccessData({ title: t("API key saved successfully") });
       setHasApiKey(true);
       setValidApiKey(true);
       setLoadingApiKey(false);
@@ -77,7 +80,7 @@ export const GeneralPage = () => {
     },
     onError: (error) => {
       setErrorData({
-        title: "API key save error",
+        title: t("API key save error"),
         list: [(error as any)?.response?.data?.detail],
       });
       setHasApiKey(false);

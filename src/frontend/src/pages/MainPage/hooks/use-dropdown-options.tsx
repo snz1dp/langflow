@@ -32,7 +32,7 @@ const useDropdownOptions = ({
     })
       .then((id) => {
         setSuccessData({
-          title: `${is_component ? "Component" : "Flow"} uploaded successfully`,
+          title: t("{{name}} uploaded successfully", { name: is_component ? t("Component") : t("Flow") }),
         });
         if (!is_component) navigate("/flow/" + id);
       })
