@@ -123,8 +123,8 @@ export default function App() {
         <>
           {
             <FetchErrorComponent
-              description={FETCH_ERROR_DESCRIPION}
-              message={FETCH_ERROR_MESSAGE}
+              description={t(FETCH_ERROR_DESCRIPION)}
+              message={t(FETCH_ERROR_MESSAGE)}
               openModal={
                 isErrorHealth ||
                 (healthData &&

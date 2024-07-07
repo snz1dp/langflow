@@ -125,7 +125,7 @@ export default function GlobalVariablesPage() {
       })
       .catch(() => {
         setErrorData({
-          title: `Error deleting global variables.`,
+          title: t(`Error deleting global variables.`),
         });
       });
   }

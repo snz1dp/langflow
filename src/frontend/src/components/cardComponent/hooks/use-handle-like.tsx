@@ -1,5 +1,6 @@
 import { postLikeComponent } from "../../../controllers/API";
 import { storeComponent } from "../../../types/store";
+import { getI18n } from "react-i18next";
 
 const useLikeComponent = (
   data: storeComponent,
@@ -12,6 +13,7 @@ const useLikeComponent = (
   setValidApiKey: (value: boolean) => void,
   setErrorData: (value: { title: string; list: string[] }) => void,
 ) => {
+  const { t } = getI18n();
   const handleLike = () => {
     setLoadingLike(true);
     if (likedByUser !== undefined || likedByUser !== null) {
@@ -35,7 +37,7 @@ const useLikeComponent = (
           } else {
             console.error(error);
             setErrorData({
-              title: `Error liking ${name}.`,
+              title: t(`Error liking {{name}}.`, {name: name}),
               list: [error.response.data.detail],
             });
           }
