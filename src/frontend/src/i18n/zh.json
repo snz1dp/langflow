@@ -261,6 +261,8 @@
   "Restore": "恢复",
   "Functionality": "功能",
   "Keyboard Shortcut": "快捷键",
+  "Error parsing message": "解析消息出错",
+  "Error": "错误",
   "Key Combination": "组合键",
   "Reset": "重置",
   "Apply": "应用",
