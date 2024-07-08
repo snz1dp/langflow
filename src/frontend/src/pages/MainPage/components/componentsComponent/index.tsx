@@ -194,7 +194,7 @@ export default function ComponentsComponent({
 
       <CardsWrapComponent
         onFileDrop={handleFileDrop}
-        dragMessage={t("Drag your {{name}} here", { name })}
+        dragMessage={t("Drag your {{name}} here", { name: t(name) })}
       >
         <div className="flex h-full w-full flex-col justify-between">
           <div className="flex w-full flex-col gap-4">
