@@ -119,6 +119,7 @@
   "Retry": "重试",
   "Share": "分享",
   "Set up the input variables defined in prompt templates. Interact with agents and chains.": "在提示词模板中设置定义的输入变量，然后与助手进行交互验证。",
+  "by <b>{{username}}</b>": "由{{username}}创建",
   "Default Session": "缺省会话",
   "Select an IO component to view": "选择一个输入输出组件进行查看",
   "Send a message...": "发送消息",

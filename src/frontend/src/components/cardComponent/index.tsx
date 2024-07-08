@@ -248,7 +248,7 @@ export default function CollectionCardComponent({
             <div className="flex gap-2">
               {data.user_created && data.user_created.username && (
                 <span className="text-sm text-primary">
-                  by <b>{data.user_created.username}</b>
+                  {t("by <b>{{username}}</b>", {username: data.user_created.username})}
                   {data.last_tested_version && (
                     <>
                       {" "}
@@ -332,7 +332,7 @@ export default function CollectionCardComponent({
                   ) : (
                     <Loading className="h-4 w-4 text-medium-indigo" />
                   )}
-                  Playground
+                  {t("Playground")}
                 </Button>
               ) : undefined}
               {data.liked_by_count != undefined && (
