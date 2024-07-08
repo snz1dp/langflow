@@ -24,6 +24,7 @@ function DataOutputComponent({
 
   const columnDefs = columns.map((col, idx) => ({
     ...col,
+    headerName: t(col.field),
     resizable: true,
   })) as (ColDef<any> | ColGroupDef<any>)[];
 

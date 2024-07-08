@@ -2,6 +2,7 @@ import {
   CellEditRequestEvent,
   NewValueParams,
   SelectionChangedEvent,
+  ColDef, ColGroupDef,
 } from "ag-grid-community";
 import cloneDeep from "lodash/cloneDeep";
 import { useState } from "react";
@@ -11,6 +12,7 @@ import useUpdateMessage from "../../../../pages/SettingsPage/pages/messagesPage/
 import useAlertStore from "../../../../stores/alertStore";
 import { useMessagesStore } from "../../../../stores/messagesStore";
 import { messagesSorter } from "../../../../utils/utils";
+import { useTranslation } from "react-i18next";
 
 export default function SessionView({ rows }: { rows: Array<any> }) {
   const columns = useMessagesStore((state) => state.columns);
@@ -41,6 +43,14 @@ export default function SessionView({ rows }: { rows: Array<any> }) {
       event.api.refreshCells();
     });
   }
+  const { t } = useTranslation();
+
+  const columnDefs = columns.map((col, idx) => ({
+    ...col,
+    headerName: t(col.field),
+    resizable: true,
+  })) as (ColDef<any> | ColGroupDef<any>)[];
+
 
   return (
     <TableComponent
@@ -50,14 +60,14 @@ export default function SessionView({ rows }: { rows: Array<any> }) {
       editable={[
         { field: "text", onUpdate: handleUpdateMessage, editableCell: false },
       ]}
-      overlayNoRowsTemplate="No data available"
+      overlayNoRowsTemplate={t("No data available")}
       onSelectionChanged={(event: SelectionChangedEvent) => {
         setSelectedRows(event.api.getSelectedRows().map((row) => row.id));
       }}
       rowSelection="multiple"
       suppressRowClickSelection={true}
       pagination={true}
-      columnDefs={columns.sort(messagesSorter)}
+      columnDefs={columnDefs.sort(messagesSorter)}
       rowData={rows}
     />
   );
