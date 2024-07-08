@@ -391,6 +391,16 @@
   "Changes saved successfully!": "保存成功！",
   "Flow built successfully": "流程构建成功",
 
+  "Search Body": "搜索内容",
+  "Document textual search terms to apply to the search query.": "用于搜索查询文档文本的搜索词。",
+  "Enable Body Search": "启用内容搜索",
+  "Flag to enable body search. This must be enabled BEFORE the table is created.": "启用内容搜索标志。必须在创建表之前启用。",
+  "Search Metadata Filter": "搜索元数据过滤器",
+  "Optional dictionary of filters to apply to the search query.": "用于搜索查询过滤器的可选字典。",
+  "Search Score Threshold": "搜索分数阈值",
+  "Minimum similarity score threshold for search results. (when using 'Similarity with score threshold')": "搜索结果的最小相似度分数阈值（使用“具有分数阈值的相似度”时）",
+  "Search type to use": "使用的搜索类型",
+
   "Success! Keys deleted!": "密钥删除成功！",
   "Export flow as JSON file.": "导出流程为JSON文件。",
   "Explore detailed logs of events and transactions between components.": "探索组件之间的事件与事物的详细日志。",
