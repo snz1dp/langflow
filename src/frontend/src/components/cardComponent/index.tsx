@@ -180,14 +180,14 @@ export default function CollectionCardComponent({
                 {data?.metadata !== undefined && (
                   <div className="flex items-center gap-3">
                     {data.private && (
-                      <ShadTooltip content="Private">
+                      <ShadTooltip content={t("Private")}>
                         <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                           <IconComponent name="Lock" className="h-4 w-4" />
                         </span>
                       </ShadTooltip>
                     )}
                     {!data.is_component && (
-                      <ShadTooltip content="Components">
+                      <ShadTooltip content={t("Components")}>
                         <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                           <IconComponent name="ToyBrick" className="h-4 w-4" />
                           <span data-testid={`total-${data.name}`}>
@@ -196,7 +196,7 @@ export default function CollectionCardComponent({
                         </span>
                       </ShadTooltip>
                     )}
-                    <ShadTooltip content="Likes">
+                    <ShadTooltip content={t("Likes")}>
                       <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <IconComponent name="Heart" className={cn("h-4 w-4")} />
                         <span data-testid={`likes-${data.name}`}>
@@ -204,7 +204,7 @@ export default function CollectionCardComponent({
                         </span>
                       </span>
                     </ShadTooltip>
-                    <ShadTooltip content="Downloads">
+                    <ShadTooltip content={t("Downloads")}>
                       <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <IconComponent
                           name="DownloadCloud"
