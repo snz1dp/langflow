@@ -111,7 +111,7 @@ const EditNodeModal = forwardRef(
         </BaseModal.Content>
         <BaseModal.Footer>
           <div className="flex w-full justify-end gap-2 pt-2">
-            <Button onClick={() => setOpen(false)}>Close</Button>
+            <Button onClick={() => setOpen(false)}>{t("Close")}</Button>
           </div>
         </BaseModal.Footer>
       </BaseModal>
