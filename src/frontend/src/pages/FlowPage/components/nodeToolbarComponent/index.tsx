@@ -132,7 +132,7 @@ export default function NodeToolbarComponent({
     }
     if (hasCode && !isSaved) {
       saveComponent(cloneDeep(data), false);
-      setSuccessData({ title: `${data.id} saved successfully` });
+      setSuccessData({ title: t(`{{dataid}} saved successfully`, { dataid: data.id }) });
       return;
     }
   }
@@ -143,7 +143,7 @@ export default function NodeToolbarComponent({
       return openInNewTab(data.node?.documentation);
     }
     setNoticeData({
-      title: `${data.id} docs is not available at the moment.`,
+      title: t(`{{dataid}} docs is not available at the moment.`, { dataid: data.id }),
     });
   }
 

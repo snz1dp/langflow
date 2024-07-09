@@ -420,6 +420,9 @@
   "installing": "安装",
   "Error {{action}} the {{name}}": "{{action}}{{name}}失败",
   "Changes saved successfully!": "保存成功！",
+  "Changes saved successfully": "保存成功",
+  "{{dataid}} saved successfully": "「{{dataid}}」保存成功",
+  "{{dataid}} docs is not available at the moment.": "「{{dataid}}」暂时不可用。",
   "Flow built successfully": "流程构建成功",
 
   "Search Body": "搜索内容",
@@ -703,7 +706,7 @@
   "Text to be passed as input.": "要传递的文本。",
   "Message to be passed as input.": "要传递的消息。",
   "Files to be sent with the message.": "要与消息一起发送的文件。",
-  "Stream the response from the model. Streaming works only in Chat.": "从模型流式传输响应。流式传输仅在对话中有效。",
+  "Stream the response from the model. Streaming works only in Chat.": "使用流式传输响应，流式传输仅在对话中有效。",
 
   "Chat Input": "对话输入",
   "Text Input": "文本输入",
