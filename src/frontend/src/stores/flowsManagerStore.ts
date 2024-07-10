@@ -1,6 +1,7 @@
 import { AxiosError } from "axios";
 import { cloneDeep } from "lodash";
 import pDebounce from "p-debounce";
+import { useLocation } from "react-router-dom";
 import { Edge, Node, Viewport, XYPosition } from "reactflow";
 import { create } from "zustand";
 import { SAVE_DEBOUNCE_TIME } from "../constants/constants";
@@ -134,6 +135,13 @@ const useFlowsManagerStore = create<FlowsManagerStoreType>((set, get) => ({
     return get().saveFlowDebounce(flow, silent); // call the debounced function directly
   },
   saveFlowDebounce: pDebounce((flow: FlowType, silent?: boolean) => {
+    const folderUrl = useFolderStore.getState().folderUrl;
+    const hasFolderUrl = folderUrl != null && folderUrl !== "";
+
+    flow.folder_id = hasFolderUrl
+      ? useFolderStore.getState().folderUrl
+      : useFolderStore.getState().myCollectionId ?? "";
+
     set({ saveLoading: true });
     const { t } = getI18n();
     return new Promise<void>((resolve, reject) => {
