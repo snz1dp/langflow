@@ -125,7 +125,7 @@
   "Select an IO component to view": "选择一个输入输出组件进行查看",
   "Send a message...": "发送消息",
   "Enter text...": "输入文本...",
-  "Start a conversation and click the agent's memories": "启动对话然后点击",
+  "Start a conversation and click the agent's memories": "开始对话并点击助手",
   "Your component is outdated. Click to update (data may be lost)": "您的组件已过时，点击更新（数据可能丢失）",
   "to inspect previous messages.": "观察链处理细节",
   "User": "用户",
