@@ -15,6 +15,7 @@ import {
   inputHandlerEventType,
   loginInputStateType,
 } from "../../types/components";
+import { useTranslation } from "react-i18next";
 
 export default function LoginPage(): JSX.Element {
   const [inputState, setInputState] =
@@ -32,6 +33,8 @@ export default function LoginPage(): JSX.Element {
     setInputState((prev) => ({ ...prev, [name]: value }));
   }
 
+  const { t } = useTranslation();
+
   function signIn() {
     const user: LoginType = {
       username: username.trim(),
@@ -47,8 +50,8 @@ export default function LoginPage(): JSX.Element {
       })
       .catch((error) => {
         setErrorData({
-          title: SIGNIN_ERROR_ALERT,
-          list: [error["response"]["data"]["detail"]],
+          title: t(SIGNIN_ERROR_ALERT),
+          list: [t(error["response"]["data"]["detail"])],
         });
       });
   }
@@ -70,12 +73,12 @@ export default function LoginPage(): JSX.Element {
         <div className="flex w-72 flex-col items-center justify-center gap-2">
           <span className="mb-4 text-5xl">⛓️</span>
           <span className="mb-6 text-2xl font-semibold text-primary">
-            Sign in to Langflow
+            {t("Sign in to Langflow")}
           </span>
           <div className="mb-3 w-full">
             <Form.Field name="username">
               <Form.Label className="data-[invalid]:label-invalid">
-                Username <span className="font-medium text-destructive">*</span>
+                {t("Username")} <span className="font-medium text-destructive">*</span>
               </Form.Label>
 
               <Form.Control asChild>
@@ -87,19 +90,19 @@ export default function LoginPage(): JSX.Element {
                   value={username}
                   className="w-full"
                   required
-                  placeholder="Username"
+                  placeholder={t("Username")}
                 />
               </Form.Control>
 
               <Form.Message match="valueMissing" className="field-invalid">
-                Please enter your username
+                {t("Please enter your username")}
               </Form.Message>
             </Form.Field>
           </div>
           <div className="mb-3 w-full">
             <Form.Field name="password">
               <Form.Label className="data-[invalid]:label-invalid">
-                Password <span className="font-medium text-destructive">*</span>
+                {t("Password")} <span className="font-medium text-destructive">*</span>
               </Form.Label>
 
               <InputComponent
@@ -115,21 +118,21 @@ export default function LoginPage(): JSX.Element {
               />
 
               <Form.Message className="field-invalid" match="valueMissing">
-                Please enter your password
+                {t("Please enter your password")}
               </Form.Message>
             </Form.Field>
           </div>
           <div className="w-full">
             <Form.Submit asChild>
               <Button className="mr-3 mt-6 w-full" type="submit">
-                Sign in
+                {t("Sign in")}
               </Button>
             </Form.Submit>
           </div>
           <div className="w-full">
             <Link to="/signup">
               <Button className="w-full" variant="outline" type="button">
-                Don't have an account?&nbsp;<b>Sign Up</b>
+                {t("Don't have an account?")}&nbsp;<b>{t("Sign Up")}</b>
               </Button>
             </Link>
           </div>
