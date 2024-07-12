@@ -27,6 +27,7 @@ import {
   PopoverTrigger,
 } from "../ui/popover";
 import { Separator } from "../ui/separator";
+import { useTranslation } from "react-i18next";
 
 const MultiselectBadgeWrapper = ({
   value,
@@ -188,6 +189,8 @@ export const Multiselect = forwardRef<
       ? `${combinedRef?.current?.clientWidth}px`
       : "200px";
 
+    const { t } = useTranslation();
+
     return (
       <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
         <PopoverTrigger asChild>
@@ -240,7 +243,7 @@ export const Multiselect = forwardRef<
             ) : (
               <div className="mx-auto flex w-full items-center justify-between">
                 <span className="mx-3 text-sm text-muted-foreground">
-                  {placeholder}
+                  {t(placeholder)}
                 </span>
                 <ChevronDown className="mx-2 h-4 cursor-pointer text-muted-foreground hover:text-accent-foreground" />
               </div>
@@ -262,7 +265,7 @@ export const Multiselect = forwardRef<
         >
           <Command>
             <CommandInput
-              placeholder="Search"
+              placeholder={t("Search")}
               onKeyDown={handleInputKeyDown}
               className="h-9"
             />
@@ -289,7 +292,7 @@ export const Multiselect = forwardRef<
                       >
                         <CheckIcon className="h-4 w-4" />
                       </div>
-                      <span>{option.label}</span>
+                      <span>{t(option.label)}</span>
                     </CommandItem>
                   );
                 })}
@@ -303,7 +306,7 @@ export const Multiselect = forwardRef<
                         onSelect={handleClear}
                         className="flex-1 cursor-pointer justify-center"
                       >
-                        Clear
+                        {t("Clear")}
                       </CommandItem>
                       <Separator
                         orientation="vertical"
@@ -316,7 +319,7 @@ export const Multiselect = forwardRef<
                     onSelect={() => setIsPopoverOpen(false)}
                     className="flex-1 cursor-pointer justify-center"
                   >
-                    Close
+                    {t("Close")}
                   </CommandItem>
                 </div>
               </CommandGroup>

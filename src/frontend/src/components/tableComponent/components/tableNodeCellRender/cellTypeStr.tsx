@@ -3,6 +3,7 @@ import InputGlobalComponent from "../../../inputGlobalComponent";
 import InputListComponent from "../../../inputListComponent";
 import { Multiselect } from "../../../multiselectComponent";
 import TextAreaComponent from "../../../textAreaComponent";
+import { getI18n } from "react-i18next";
 
 export function renderStrType({
   templateData,
@@ -10,6 +11,7 @@ export function renderStrType({
   disabled,
   handleOnNewValue,
 }) {
+  const { t } = getI18n();
   if (!templateData.options) {
     return templateData?.list ? (
       <InputListComponent
@@ -51,7 +53,7 @@ export function renderStrType({
         editNode={true}
         disabled={disabled}
         options={templateData.options || []}
-        value={templateValue ?? "Choose an option"}
+        value={templateValue ?? t("Choose an option")}
         id={"multiselect-" + templateData.name}
         onValueChange={(value) => handleOnNewValue(value, templateData.key)}
       />
@@ -64,7 +66,7 @@ export function renderStrType({
         editNode={true}
         options={templateData.options}
         onSelect={(value) => handleOnNewValue(value, templateData.key)}
-        value={templateValue ?? "Choose an option"}
+        value={templateValue ?? t("Choose an option")}
         id={"dropdown-edit-" + templateData.name}
       />
     );
