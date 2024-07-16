@@ -169,6 +169,7 @@ import { CassandraIcon } from "../icons/Cassandra";
 import { ChromaIcon } from "../icons/ChromaIcon";
 import { CohereIcon } from "../icons/Cohere";
 import { CouchbaseIcon } from "../icons/Couchbase";
+import { CrewAiIcon } from "../icons/CrewAI";
 import { ElasticsearchIcon } from "../icons/ElasticsearchStore";
 import { EvernoteIcon } from "../icons/Evernote";
 import { FBIcon } from "../icons/FacebookMessenger";
@@ -382,6 +383,7 @@ export const nodeIconsLucide: iconsType = {
   HuggingFace: HuggingFaceIcon,
   HuggingFaceEmbeddings: HuggingFaceIcon,
   IFixitLoader: IFixIcon,
+  CrewAI: CrewAiIcon,
   Meta: MetaIcon,
   Midjorney: MidjourneyIcon,
   MongoDBAtlasVectorSearch: MongoDBIcon,
