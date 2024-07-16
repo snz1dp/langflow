@@ -133,7 +133,7 @@ export const Multiselect = forwardRef<
   ) => {
     // if elements in values are strings, create the multiselectValue object
     // otherwise, use the values as is
-    const value = values?.map((v) =>
+    const value = typeof(values) === 'string' ? [values] : values?.map((v) =>
       typeof v === "string" ? { label: v, value: v } : v,
     );
 
